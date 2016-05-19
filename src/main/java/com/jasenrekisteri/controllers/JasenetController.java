@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class JasenetController {
     
-     ArrayList<Jasen> jasenetList = new ArrayList<Jasen>();
+    ArrayList<Jasen> jasenetList = new ArrayList<Jasen>();
     
     @PostConstruct
     public void init(){ 
@@ -44,6 +44,41 @@ public class JasenetController {
         return "jasenet";
     }
     
+    @RequestMapping(value = "jasenet", method = RequestMethod.POST)
+    public void paivitaJasen(@RequestParam(value = "id", required=true) long id, 
+            @RequestParam(value = "etunimi", required=true) String etunimi,
+            @RequestParam(value = "sukunimi", required=true) String sukunimi,
+            @RequestParam(value = "email", required=true) String email,
+            Model model){
+        
+        Jasen e = new Jasen(id, etunimi, sukunimi, email);
+        /*Jasen e = jasenetList.get((int)id);
+        e.setId(id);
+        e.setEtunimi(etunimi);
+        e.setSukunimi(sukunimi);
+        e.setEmail(email);
+        id--;*/
+        
+        jasenetList.add(e);
+        
+        listaaJasenet(model);
+        
+        //return "jasenet";
+    }
+    
+    @RequestMapping(value = "jasenet/poista", method = RequestMethod.GET)
+    public void poistaJasen(@RequestParam(value="id", required = true) long id, Model model) {
+        id--;
+        jasenetList.remove(id);
+        listaaJasenet(model);
+    }
+    
+    /*
+    @RequestMapping(value="/persons", method = RequestMethod.DELETE)
+    public void removePerson(@RequestParam(value="id", required = true) long id){
+        jasenetList.remove((int)id);
+    }
+    */
     /*
     @RequestMapping(value = "persons", method = RequestMethod.GET)
     public ModelAndView personsListattu(@RequestParam("name") String name,

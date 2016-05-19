@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:th="http://www.thymeleaf.org">
+    
+<head lang="en">
+
+    <title>Jäsenrekisteri</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <!-- <link href="../static/main.css"
+          th:href="@{main.css}" rel="stylesheet" /> -->
+    
+</head>
+<body>
+<h1>Muokkaa jäsentä</h1>
+
+<h2>Tämän alapuolelle näet muokkaamasi jäsenen tiedot.</h2>
+
+   
+    <h3 th:text="${'Etunimi: ' + jasen.etunimi}">Etunimi</h3>
+    <h3 th:text="${'Sukunimi: ' + jasen.sukunimi}">Sukunimi</h3>
+    <!-- <a href="jasenet.html" th:href="@{jasenet.html + '?id=' + ${jasen.id}}">Muokkaa</a> -->
+
+    <hr />
+
+    <form action='#' th:action="@{jasenet.html}" method='post'>
+        <p>ID: <input type='text' th:value="${jasen.id}" name="id" readonly="" /></p>
+        <p>Etunimi: <input type='text' th:value="${jasen.etunimi}" name="etunimi" /></p>
+        <p>Sukunimi: <input type='text' th:value='${jasen.sukunimi}' name="sukunimi" /></p>
+        <p>Sähköposti: <input type='text' th:value='${jasen.email}' name="email" /></p>
+        <input type='submit' value='Vahvista' />
+        <br /><br />
+    </form>
+    
+    
+    <a href="jasenet" th:href="@{jasenet.html}">Takaisin etusivulle</a>
+    
+</body>
+</html>

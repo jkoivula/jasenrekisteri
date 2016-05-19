@@ -15,11 +15,13 @@
 <h1>Jäsenet-sivu</h1>
 
 <h2>Tämän alapuolelle listataan kaikki tietokannasta löytyvät jäsenet.</h2>
-<h2>Tämän alapuolelle listataan kaikki tietokannasta löytyvät jäsenet.</h2>
+
 <div th:each="jasen : ${jasenet}">
    
     <h3 th:text="${'Etunimi: ' + jasen.etunimi}">Etunimi</h3>
     <h3 th:text="${'Sukunimi: ' + jasen.sukunimi}">Sukunimi</h3>
+    <a href="muokkaaJasen.html" th:href="@{muokkaaJasen.html + '?id=' + ${jasen.id}}">Muokkaa</a><br />
+
     <hr />
     
 </div>
