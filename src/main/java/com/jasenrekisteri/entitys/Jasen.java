@@ -23,6 +23,12 @@ public class Jasen {
         this.sukunimi = sukunimi;
         this.email = email;
     }
+    public Jasen(long id, String etunimi, String sukunimi, String email){
+        this.id = id;
+        this.etunimi = etunimi;
+        this.sukunimi = sukunimi;
+        this.email = email;
+    }
     
     // GET&SET
     public long getId() {
