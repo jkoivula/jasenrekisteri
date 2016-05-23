@@ -7,7 +7,95 @@ and open the template in the editor.
     Created on : 23.5.2016, 10:46:49
     Author     : Joni
 */
-
+* {
+    font-family: arial, sans;
+}
+body {
+    margin: 0;
+}
 h1 {
-    color: blueviolet;
+    background-color: darkcyan;
+    color: white;
+    font-size: 40px;
+    padding: 8px;
+    margin: 15px 0;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: floralwhite;
+    background-color: dodgerblue;
+    font-weight: 600;
+    padding: 8px 16px 8px 12px;
+    border-left: 4px solid dodgerblue;
+    transition: border-radius 0.2s ease-out,
+                border-left 0.2s ease-out;
+}
+a:hover {
+    bborder-radius: 6px;
+    border-left: 4px solid blue;
+}
+p {
+    ttext-align: center;
+}
+#container {
+    margin: 0 17%;
+}
+#inputID {
+    display: none;
+}
+form {
+    mmargin: 0 15%;
+}
+fieldset {
+    padding: 18px 18px 0;
+    margin: 15px 0 29px;
+    border: 1px solid blue;
+}
+legend {
+    padding: 4px 7px;
+    color: floralwhite;
+    background-color: blue;
+    font-weight: 800;
+}
+label {
+    display: block;
+    padding: 5px 10px;
+}
+label span {
+    float: left;
+    width: 100px;
+}
+label input[type="text"] {
+    padding: 3px 4px;
+    width: 50%;
+}
+label input[type="submit"] {
+    color: floralwhite;
+    background-color: dodgerblue;
+    font-weight: 600;
+    padding: 8px 16px 8px 12px;
+    border: 0;
+}
+
+/*TABLE */
+
+table {
+    margin: 25px auto 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    padding-bottom: 7px;
+}
+td {
+    border-bottom: 1px solid blue;
+    text-align: center;
+    padding: 15px 10px 7px;
+}
+.linkki {
+    text-align: right;
+}
+.linkki a {
+    margin-left: 4px;
 }

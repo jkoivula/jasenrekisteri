@@ -11,19 +11,50 @@
     
 </head>
 <body>
-<h1>Jäsenet-sivu</h1>
-<a href="#" th:href="@{uusiJasen.html}">Lisää uusi jäsen</a>
-<h2>Tämän alapuolelle listataan kaikki tietokannasta löytyvät jäsenet.</h2>
+    <h1>Jäsenet-sivu</h1>
+    <div id="container">
+        
+        <h2>Tämän alapuolelle listataan kaikki tietokannasta löytyvät jäsenet.</h2>
 
-<div th:each="jasen : ${jasenet}">
-   
-    <h3 th:text="${'Etunimi: ' + jasen.etunimi}">Etunimi</h3>
-    <h3 th:text="${'Sukunimi: ' + jasen.sukunimi}">Sukunimi</h3>
-    <a href="muokkaaJasen.html" th:href="@{muokkaaJasen.html + '?id=' + ${jasen.id}}">Muokkaa</a><br />
-    <a href="muokkaaJasen.html" th:href="@{'poista' + '?id=' + ${jasen.id}}">Poista</a><br />
-    <hr />
-    
-</div>
+        <a href="#" th:href="@{uusiJasen.html}">Lisää uusi jäsen</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Etunimi</th>
+                    <th>Sukunimi</th>
+                    <th>Sähköposti</th>
+                </tr>
+            </thead>
+            <tr th:each="jasen : ${jasenet}">
+                <td th:text="${jasen.etunimi}">ETUNIMI</td>
+                <td th:text="${jasen.sukunimi}">SUKUNIMI</td>
+                <td th:text="${jasen.email}">SÄHKÖPOSTI</td>
+                <td class="linkki"><a href="muokkaaJasen.html" th:href="@{muokkaaJasen.html + '?id=' + ${jasen.id}}">Muokkaa</a>
+                <a href="muokkaaJasen.html" th:href="@{'poista' + '?id=' + ${jasen.id}}">Poista</a></td>
+            </tr>
+        </table>
+        <!--
+        <ul th:each="jasen : ${jasenet}">
+            <li><p th:text="${jasen.etunimi + ' ' + jasen.sukunimi}">TIEDOT</p>
+            <a href="muokkaaJasen.html" th:href="@{muokkaaJasen.html + '?id=' + ${jasen.id}}">Muokkaa</a>
+            <a href="muokkaaJasen.html" th:href="@{'poista' + '?id=' + ${jasen.id}}">Poista</a>
+            </li>
+        </ul>
+        -->
+        <!--
+        <div th:each="jasen : ${jasenet}">
 
+            <h3 th:text="${'Etunimi: ' + jasen.etunimi}">Etunimi</h3>
+            <h3 th:text="${'Sukunimi: ' + jasen.sukunimi}">Sukunimi</h3>
+            <a href="muokkaaJasen.html" th:href="@{muokkaaJasen.html + '?id=' + ${jasen.id}}">Muokkaa</a>
+            <a href="muokkaaJasen.html" th:href="@{'poista' + '?id=' + ${jasen.id}}">Poista</a><br /><br />
+            <hr />
+
+        </div>
+        
+        -->
+        <!-- <footer>Joni Koivula <br /> TRTKNU15A3</footer> -->
+    </div> <!-- container -->
 </body>
 </html>

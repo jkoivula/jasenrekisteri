@@ -11,28 +11,22 @@
     
 </head>
 <body>
-<h1>Muokkaa jäsentä</h1>
+    <h1>Muokkaa jäsentä</h1>
+    <div id="container">
 
-<h2>Tämän alapuolelle näet muokkaamasi jäsenen tiedot.</h2>
+        <!-- <h2>Tämän alapuolelle näet muokkaamasi jäsenen tiedot.</h2> -->
 
-   
-    <h3 th:text="${'Etunimi: ' + jasen.etunimi}">Etunimi</h3>
-    <h3 th:text="${'Sukunimi: ' + jasen.sukunimi}">Sukunimi</h3>
-    <!-- <a href="jasenet.html" th:href="@{jasenet.html + '?id=' + ${jasen.id}}">Muokkaa</a> -->
-
-    <hr />
-
-    <form action='#' th:action="@{muokkaaJasen.html}" method='post'>
-        <p>ID: <input type='text' th:value="${jasen.id}" name="id" readonly="" /></p>
-        <p>Etunimi: <input type='text' th:value="${jasen.etunimi}" name="etunimi" required="" /></p>
-        <p>Sukunimi: <input type='text' th:value='${jasen.sukunimi}' name="sukunimi" required="" /></p>
-        <p>Sähköposti: <input type='text' th:value='${jasen.email}' name="email" required="" /></p>
-        <input type='submit' value='Vahvista' />
-        <br /><br />
-    </form>
-    
-    
-    <a href="jasenet" th:href="@{jasenet.html}">Takaisin etusivulle</a>
-    
+        <form action='#' th:action="@{muokkaaJasen.html}" method='post'>
+            <fieldset><legend th:text="${'ID: ' + jasen.id}"></legend>
+            <input type='text' th:value="${jasen.id}" name="id" id="inputID" readonly="" />
+            <label><span>Etunimi</span><input type='text' th:value="${jasen.etunimi}" name="etunimi" required="" /></label>
+            <label><span>Sukunimi</span><input type='text' th:value='${jasen.sukunimi}' name="sukunimi" required="" /></label>
+            <label><span>Sähköposti</span><input type='text' th:value='${jasen.email}' name="email" required="" /></label>
+            <label><span>&nbsp;</span><input type='submit' value='Vahvista' /></label>
+            <br /><br />
+            </fieldset>
+        </form>
+        <p><a href="jasenet" th:href="@{jasenet.html}">Takaisin etusivulle</a></p>
+   </div> <!-- container -->
 </body>
 </html>

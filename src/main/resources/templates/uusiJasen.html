@@ -11,20 +11,21 @@
     
 </head>
 <body>
-<h1>Lisää uusi jäsen</h1>
+    <h1>Lisää uusi jäsen</h1>
+    
+    <div id="container">
+        
+        <form action='#' th:action="@{uusiJasen.html}" th:object="${jasen}" method='post'>
+            <fieldset><legend>UUSI JÄSEN</legend>
+            <label><span>Etunimi</span><input type='text' th:field="*{etunimi}" required="" /></label>
+            <label><span>Sukunimi</span><input type='text' th:field="*{sukunimi}" required="" /></label>
+            <label><span>Sähköposti</span><input type='text' th:field="*{email}" required="" /></label>
+            <label><span>&nbsp;</span><input type='submit' value='Vahvista' /></label>
+            <br /><br />
+            </fieldset>
+        </form>
 
-    <hr />
-
-    <form action='#' th:action="@{uusiJasen.html}" th:object="${jasen}" method='post'>
-        <p>Etunimi: <input type='text' th:field="*{etunimi}" required="" /></p>
-        <p>Sukunimi: <input type='text' th:field="*{sukunimi}" required="" /></p>
-        <p>Sähköposti: <input type='text' th:field="*{email}" required="" /></p>
-        <input type='submit' value='Vahvista' />
-        <br /><br />
-    </form>
-    
-    
-    <a href="jasenet" th:href="@{jasenet.html}">Takaisin etusivulle</a>
-    
+        <p><a href="jasenet" th:href="@{jasenet.html}">Takaisin etusivulle</a></p>
+    </div> <!-- container -->
 </body>
 </html>
