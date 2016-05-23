@@ -19,26 +19,27 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Joni
  */
 @Controller
-public class MuokkaaJasenController {
-    
+public class UusiJasenController {
+     
     @Autowired
     JasenRepository crudRepository;
     
-    @RequestMapping(value = "muokkaaJasen", method = RequestMethod.GET)
-    public String naytaMuokattavaJasen(@RequestParam(value="id", required = true) long id, Model model) {
+    @RequestMapping(value = "uusiJasen", method = RequestMethod.GET)
+    public String uusiJasen(Model model) {
         
-        model.addAttribute("jasen", crudRepository.findOne(id));
-        return "muokkaaJasen";
+        model.addAttribute("jasen", new Jasen());
+        
+        return "uusiJasen";
         
     }
     
-    @RequestMapping(value = "muokkaaJasen", method = RequestMethod.POST)
-    public String paivitaJasen(Jasen jasen) {
+    @RequestMapping(value = "uusiJasen", method = RequestMethod.POST)
+    public String lisaaJasen(Jasen jasen){
         
         crudRepository.save(jasen);
-        
+
         String redirectUrl = "jasenet.html";
         return "redirect:" + redirectUrl;
-        
     }
+    
 }

@@ -5,15 +5,13 @@
  */
 package com.jasenrekisteri.controllers;
 
-import com.jasenrekisteri.entitys.Jasen; //Jäsen
-import java.util.ArrayList;
-import javax.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import com.jasenrekisteri.repositories.JasenRepository;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -22,94 +20,37 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class JasenetController {
     
-    ArrayList<Jasen> jasenetList = new ArrayList<Jasen>();
+    //ArrayList<Jasen> jasenetList = new ArrayList<Jasen>();
     
+    @Autowired
+    JasenRepository crudRepository;
+    
+    /*
     @PostConstruct
     public void init(){ 
-        jasenetList.add(new Jasen(1, "Galle", "Tuohola","a@a.jsnrk"));
-        jasenetList.add(new Jasen(2, "Maja", "Koli","b@b.jsnrk"));
+        Jasen j = new Jasen("Galle", "Tuoho", "galle@tuoho.l");
+        Jasen i = new Jasen("Maja", "Lainela", "maja@lainela.l");
+        crudRepository.save(j);
+        crudRepository.save(i);
     }
-    
-    
-    @RequestMapping("/jasenet")
-    String jasenet(){
-        return "jasenet";
-    }
+    */
     
     @RequestMapping(value = "jasenet", method = RequestMethod.GET)
     public String listaaJasenet(Model model) {
         
-        model.addAttribute("jasenet", jasenetList);
+        model.addAttribute("jasenet", crudRepository.findAll());
         
         return "jasenet";
     }
     
-    @RequestMapping(value = "jasenet", method = RequestMethod.POST)
-    public void paivitaJasen(@RequestParam(value = "id", required=true) long id, 
-            @RequestParam(value = "etunimi", required=true) String etunimi,
-            @RequestParam(value = "sukunimi", required=true) String sukunimi,
-            @RequestParam(value = "email", required=true) String email,
-            Model model){
-        
-        Jasen e = new Jasen(id, etunimi, sukunimi, email);
-        /*Jasen e = jasenetList.get((int)id);
-        e.setId(id);
-        e.setEtunimi(etunimi);
-        e.setSukunimi(sukunimi);
-        e.setEmail(email);
-        id--;*/
-        
-        jasenetList.add(e);
-        
-        listaaJasenet(model);
-        
-        //return "jasenet";
-    }
     
-    @RequestMapping(value = "jasenet/poista", method = RequestMethod.GET)
-    public void poistaJasen(@RequestParam(value="id", required = true) long id, Model model) {
-        id--;
-        jasenetList.remove(id);
-        listaaJasenet(model);
+    @RequestMapping(value = "poista", method = RequestMethod.GET)
+    public String poistaJasen(@RequestParam(value="id", required = true) long id, Model model) {
+        crudRepository.deleteById(id);
+        //listaaJasenet(model);
+        
+        String redirectUrl = "jasenet.html";
+        return "redirect:" + redirectUrl;
     }
-    
-    /*
-    @RequestMapping(value="/persons", method = RequestMethod.DELETE)
-    public void removePerson(@RequestParam(value="id", required = true) long id){
-        jasenetList.remove((int)id);
-    }
-    */
-    /*
-    @RequestMapping(value = "persons", method = RequestMethod.GET)
-    public ModelAndView personsListattu(@RequestParam("name") String name,
-            @RequestParam("age") int age) {
-        Person person = new Person();
-        person.setName(name);
-        person.setAge(age);
-        
-        //person.lisaaPerson(person);
-        
-        ModelAndView mav = new ModelAndView("persons");
-        mav.addObject("person", person);
-        
-        return mav;
-        //return "persons/list";
-    }
-    
-    @RequestMapping(value = "persons", method = RequestMethod.POST)
-    public ModelAndView newPerson(@RequestParam("name") String name,
-            @RequestParam("age") int age) {
-        Person person = new Person();
-        person.setName(name);
-        person.setAge(age);
-        
-        personsList.add(person);
-        
-        ModelAndView mav = new ModelAndView("persons");
-        mav.addObject("persons", personsList);
-        
-        return mav;
-        //return "persons/list";
-    }
-    */
+  
 }

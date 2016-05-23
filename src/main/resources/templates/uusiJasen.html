@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:th="http://www.thymeleaf.org">
+    
+<head lang="en">
+
+    <title>Jäsenrekisteri</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <link href="../static/main.css" th:href="@{main.css}" rel="stylesheet" />
+    
+</head>
+<body>
+<h1>Lisää uusi jäsen</h1>
+
+    <hr />
+
+    <form action='#' th:action="@{uusiJasen.html}" th:object="${jasen}" method='post'>
+        <p>Etunimi: <input type='text' th:field="*{etunimi}" required="" /></p>
+        <p>Sukunimi: <input type='text' th:field="*{sukunimi}" required="" /></p>
+        <p>Sähköposti: <input type='text' th:field="*{email}" required="" /></p>
+        <input type='submit' value='Vahvista' />
+        <br /><br />
+    </form>
+    
+    
+    <a href="jasenet" th:href="@{jasenet.html}">Takaisin etusivulle</a>
+    
+</body>
+</html>

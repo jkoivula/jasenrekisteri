@@ -5,12 +5,22 @@
  */
 package com.jasenrekisteri.entitys;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Joni
  */
-public class Jasen {
+@Entity
+@Table(name = "jasenet")
+public class Jasen implements Serializable {
     // ATTRIBUUTIT
+    @Id
+    @GeneratedValue
     private long id;
     private String etunimi;
     private String sukunimi;

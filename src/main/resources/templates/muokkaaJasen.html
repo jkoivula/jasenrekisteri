@@ -7,8 +7,7 @@
     <title>Jäsenrekisteri</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
-    <!-- <link href="../static/main.css"
-          th:href="@{main.css}" rel="stylesheet" /> -->
+    <link href="../static/main.css" th:href="@{main.css}" rel="stylesheet" />
     
 </head>
 <body>
@@ -23,11 +22,11 @@
 
     <hr />
 
-    <form action='#' th:action="@{jasenet.html}" method='post'>
+    <form action='#' th:action="@{muokkaaJasen.html}" method='post'>
         <p>ID: <input type='text' th:value="${jasen.id}" name="id" readonly="" /></p>
-        <p>Etunimi: <input type='text' th:value="${jasen.etunimi}" name="etunimi" /></p>
-        <p>Sukunimi: <input type='text' th:value='${jasen.sukunimi}' name="sukunimi" /></p>
-        <p>Sähköposti: <input type='text' th:value='${jasen.email}' name="email" /></p>
+        <p>Etunimi: <input type='text' th:value="${jasen.etunimi}" name="etunimi" required="" /></p>
+        <p>Sukunimi: <input type='text' th:value='${jasen.sukunimi}' name="sukunimi" required="" /></p>
+        <p>Sähköposti: <input type='text' th:value='${jasen.email}' name="email" required="" /></p>
         <input type='submit' value='Vahvista' />
         <br /><br />
     </form>
