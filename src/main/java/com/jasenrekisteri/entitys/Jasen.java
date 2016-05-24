@@ -6,10 +6,7 @@
 package com.jasenrekisteri.entitys;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -20,7 +17,7 @@ import javax.persistence.Table;
 public class Jasen implements Serializable {
     // ATTRIBUUTIT
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String etunimi;
     private String sukunimi;

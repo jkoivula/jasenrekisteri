@@ -19,21 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class JasenetController {
-    
-    //ArrayList<Jasen> jasenetList = new ArrayList<Jasen>();
-    
+
     @Autowired
     JasenRepository crudRepository;
-    
-    /*
-    @PostConstruct
-    public void init(){ 
-        Jasen j = new Jasen("Galle", "Tuoho", "galle@tuoho.l");
-        Jasen i = new Jasen("Maja", "Lainela", "maja@lainela.l");
-        crudRepository.save(j);
-        crudRepository.save(i);
-    }
-    */
     
     @RequestMapping(value = "jasenet", method = RequestMethod.GET)
     public String listaaJasenet(Model model) {
@@ -46,9 +34,9 @@ public class JasenetController {
     
     @RequestMapping(value = "poista", method = RequestMethod.GET)
     public String poistaJasen(@RequestParam(value="id", required = true) long id, Model model) {
-        crudRepository.deleteById(id);
-        //listaaJasenet(model);
         
+        crudRepository.deleteById(id);
+
         String redirectUrl = "jasenet.html";
         return "redirect:" + redirectUrl;
     }

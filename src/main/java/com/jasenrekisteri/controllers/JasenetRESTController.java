@@ -35,9 +35,13 @@ public class JasenetRESTController {
     }
     
     @RequestMapping(value = "REST/uusiJasen", method = RequestMethod.POST)
-    public void lisaaJasen(Jasen jasen){
+    public void lisaaJasen(@RequestParam(value = "etunimi") String etunimi,
+            @RequestParam(value = "sukunimi") String sukunimi,
+            @RequestParam(value = "email") String email){
         
-        crudRepository.save(jasen);
+        Jasen j = new Jasen(etunimi, sukunimi, email);
+        
+        crudRepository.save(j);
         
     }
     
@@ -52,7 +56,7 @@ public class JasenetRESTController {
     public void paivitaJasen(@RequestParam(value = "id", required = true) long id,
             @RequestParam(value = "etunimi") String etunimi,
             @RequestParam(value = "sukunimi") String sukunimi,
-            @RequestParam(value = "emal") String email) {
+            @RequestParam(value = "email") String email) {
         
         Jasen j = new Jasen(id, etunimi, sukunimi, email);
         crudRepository.save(j);
