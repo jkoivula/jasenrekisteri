@@ -6,7 +6,7 @@
 
     <title>Jäsenrekisteri</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    
+
     <link href="../static/main.css" th:href="@{main.css}" rel="stylesheet" />
     
 </head>
@@ -15,7 +15,7 @@
     <div id="container">
 
         <p style="margin: 35px;"><a href="#" th:href="@{uusiJasen.html}">Lisää uusi jäsen</a></p>
-        <p>Hae jäsentä nimen perusteella</p><br />
+       
         <form action="#" th:action="@{jasen.html}" method="post" >
             <input type="radio" name="valinta" value="etunimi" checked="true"/> Etunimi&nbsp;&nbsp;
             <input type="radio" name="valinta" value="sukunimi" /> Sukunimi<br />
