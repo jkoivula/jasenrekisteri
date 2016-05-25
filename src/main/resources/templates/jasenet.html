@@ -16,7 +16,7 @@
 
         <p style="margin: 35px;"><a href="#" th:href="@{uusiJasen.html}">Lisää uusi jäsen</a></p>
         <p>Hae jäsentä nimen perusteella</p><br />
-        <form action="#" th:action="@{jasen.html}" method="post">
+        <form action="#" th:action="@{jasen.html}" method="post" >
             <input type="radio" name="valinta" value="etunimi" checked="true"/> Etunimi&nbsp;&nbsp;
             <input type="radio" name="valinta" value="sukunimi" /> Sukunimi<br />
             <input type="text" name="nimi"  required=""/>&nbsp;&nbsp;
@@ -39,7 +39,10 @@
             </tr>
         </table>
        
-        <!-- <footer>Joni Koivula <br /> TRTKNU15A3</footer> -->
+        <footer>
+            <p>Joni Koivula <br /> TRTKNU15A3</p>
+            <p>WWW-sovelluspalvelut<br />Jäsenrekisteri</p>
+        </footer>
     </div> <!-- container -->
 </body>
 </html>
