@@ -11,17 +11,13 @@
     
 </head>
 <body>
-    <h1>Jäsenet</h1>
+    <h1>Haun tulos</h1>
     <div id="container">
 
-        <p style="margin: 35px;"><a href="#" th:href="@{uusiJasen.html}">Lisää uusi jäsen</a></p>
-        <p>Hae jäsentä nimen perusteella</p><br />
-        <form action="#" th:action="@{jasen.html}" method="post">
-            <input type="radio" name="valinta" value="etunimi" checked="true"/> Etunimi&nbsp;&nbsp;
-            <input type="radio" name="valinta" value="sukunimi" /> Sukunimi<br />
-            <input type="text" name="nimi"  required=""/>&nbsp;&nbsp;
-            <input type="submit" value="Hae" />
-        </form>
+        <p style="margin: 35px;"><a href="#" th:href="@{jasenet.html}">Etusivulle</a></p>
+        
+        <span th:text="${virhe}"></span>
+        
         <table>
             <thead>
                 <tr>
@@ -38,7 +34,6 @@
                 <a class="tauluLinkki" href="muokkaaJasen.html" th:href="@{'poista' + '?id=' + ${jasen.id}}">Poista</a></td>
             </tr>
         </table>
-       
         <!-- <footer>Joni Koivula <br /> TRTKNU15A3</footer> -->
     </div> <!-- container -->
 </body>

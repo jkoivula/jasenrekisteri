@@ -17,6 +17,10 @@ import java.util.List;
  */
 public interface JasenRepository extends CrudRepository<Jasen, Long> {
 
+    List<Jasen> findByEtunimi(String etunimi);
+    
+    List<Jasen> findBySukunimi(String sukunimi);
+    
     Jasen findOne(Long id);
     
     List findAll();
