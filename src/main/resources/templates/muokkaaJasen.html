@@ -14,8 +14,6 @@
     <h1>Muokkaa jäsentä</h1>
     <div id="container">
 
-        <!-- <h2>Tämän alapuolelle näet muokkaamasi jäsenen tiedot.</h2> -->
-
         <form action='#' th:action="@{muokkaaJasen.html}" method='post'>
             <fieldset><legend th:text="${'ID: ' + jasen.id}"></legend>
             <input type='text' th:value="${jasen.id}" name="id" id="inputID" readonly="" />
