@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:th="http://www.thymeleaf.org">
+    
+<head lang="en">
+
+    <title>Jäsenrekisteri</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="../static/main.css" th:href="@{main.css}" rel="stylesheet" />
+    
+    <style>
+        .restTD {
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        .restTD:first-child {
+            border-left: 1px solid black;
+        }
+        .restTD:last-child {
+            border-right: 1px solid black;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>REST / Jäsenet</h1>
+    <div id="container">
+
+        <p style="margin-top: 30px;"><a style="margin-right: 15px;" href="#" th:href="@{REST/jasenet}">Jäsenet JSON-muodossa</a>
+            <a href="jasenet" th:href="@{jasenet.html}">Etusivulle</a></p>
+        <p>JasenetRESTController.java palauttama JSON-tieto tyyliteltynä taulukkoon käyttämällä Thymeleafia.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Etunimi</th>
+                    <th>Sukunimi</th>
+                    <th>Sähköposti</th>
+                </tr>
+            </thead>
+            <tr th:each="jasen : ${jasenet}">
+                <td class="restTD" th:text="${jasen.etunimi}">ETUNIMI</td>
+                <td class="restTD" th:text="${jasen.sukunimi}">SUKUNIMI</td>
+                <td class="restTD" th:text="${jasen.email}">SÄHKÖPOSTI</td>
+                </tr>
+        </table>
+        
+        <h3 style="color: mediumvioletred;">RESTControllerin käyttö:</h3>
+        
+        <table id="RESTohjeet">
+            <thead>
+                <tr>
+                    <th>Osoite</th>
+                    <th>Request method</th>
+                    <th>Kuvaus</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>REST/jasenet</td>
+                <td><strong>GET</strong></td>
+                <td>Hakee kaikki jäsenet.</td>
+            </tr>
+            <tr>
+                <td>REST/uusiJasen</td>
+                <td><strong>POST</strong></td>
+                <td>Lisää uuden jäsenen, vaatii kolme parametria:<br /><i style="color: mediumvioletred;">etunimi, sukunimi, email</i></td>
+            </tr>
+            <tr>
+                <td>REST/poista</td>
+                <td><strong>DELETE</strong></td>
+                <td>Poistaa jäsenen, vaatii parametriksi jäsenen id.</td>
+            </tr>
+            <tr>
+                <td>REST/muokkaaJasen</td>
+                <td><strong>PUT</strong></td>
+                <td>Päivittää jäsenen tietoja, vaatii parametriksi jäsenen id.</td>
+            </tr>
+        </table>
+        
+        <footer>
+            <p>Joni Koivula <br /> TRTKNU15A3</p>
+            <p>WWW-sovelluspalvelut<br />Jäsenrekisteri</p>
+        </footer>
+    </div> <!-- container -->
+</body>
+</html>

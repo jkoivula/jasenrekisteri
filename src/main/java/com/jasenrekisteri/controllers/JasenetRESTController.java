@@ -9,11 +9,13 @@ import com.jasenrekisteri.entitys.Jasen;
 import com.jasenrekisteri.repositories.JasenRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  *
@@ -24,7 +26,6 @@ public class JasenetRESTController {
   
     @Autowired
     JasenRepository crudRepository;
-    
     
     @RequestMapping(value = "REST/jasenet", method = RequestMethod.GET)
     public List listaaJasenet(Model model) {

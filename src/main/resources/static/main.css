@@ -14,8 +14,8 @@ body {
     margin: 0;
 }
 h1 {
-    border: 1px solid midnightblue;
-    bbackground-color: midnightblue;
+    border-bottom: 1px solid midnightblue;
+    border-top: 1px solid midnightblue;
     color: midnightblue;
     font-size: 40px;
     padding: 8px;
@@ -38,7 +38,7 @@ a:hover {
     color: dodgerblue;
 }
 p {
-    ttext-align: center;
+    margin-top: 35px;
 }
 #container {
     text-align: center;
@@ -126,4 +126,16 @@ footer p {
     margin: 10px 30px;
     font-size: 15px;
     color: midnightblue;
+}
+#RESTohjeet {
+    border: 1px solid mediumvioletred;
+}
+#RESTohjeet th, #RESTohjeet td {
+    text-align: left;
+    border: none;
+    border-bottom: 1px dashed mediumvioletred;
+    padding: 12px;
+}
+#RESTohjeet th {
+    border-bottom: 1px solid mediumvioletred;
 }

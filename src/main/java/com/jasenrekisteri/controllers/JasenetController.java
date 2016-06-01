@@ -36,6 +36,13 @@ public class JasenetController {
         crudRepository.save(l);
     }
     
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String indexRedirect() {
+        
+        String redirectUrl = "jasenet.html";
+        return "redirect:" + redirectUrl;
+    }
+    
     @RequestMapping(value = "jasenet", method = RequestMethod.GET)
     public String listaaJasenet(Model model) {
         
